@@ -36,10 +36,19 @@ function clearSavedPictures() {
     files.removeDir(contants.SCREEN_SHOT_PATH)
 }
 
+function parseCurrentDate() {
+    const date = new Date()
+    const month = date.getMonth() > 9 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1)
+    const day = date.getDate() > 9 ? date.getDate() : '0' + date.getDate()
+
+    return month + '-' + day
+}
+
 module.exports = {
     requestPermissions: requestPermissions,
     perpareCacheDir: perpareCacheDir,
     screenShot: screenShot,
     startApp: startApp,
     clearSavedPictures: clearSavedPictures,
+    parseCurrentDate: parseCurrentDate,
 }

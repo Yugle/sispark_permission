@@ -1,0 +1,17 @@
+const SCREEN_SHOT_PATH = '/sdcard/DCIM/develop/pic/'
+const SCREEN_SHOT_SUBFIX = '.png'
+
+const HEALTH_CODE_NAME = 'skm'
+const PERMISSIONG_CARD_NAME = 'xck'
+
+const URL_SCHEME_HEALTH_CODE = 'alipays://platformapi/startapp?appId=2018062060350751&page=%2Fpages%2Fweb%2Fweb%3Furl%3Dhttps%3A%2F%2Fjsstm.jszwfw.gov.cn%2FjkmIndex.html'
+const URL_SCHEME_PERMISSION_CARD = 'alipays://platformapi/startapp?appId=2021002170600786'
+
+module.exports = {
+    SCREEN_SHOT_PATH: SCREEN_SHOT_PATH,
+    SCREEN_SHOT_SUBFIX: SCREEN_SHOT_SUBFIX,
+    URL_SCHEME_HEALTH_CODE: URL_SCHEME_HEALTH_CODE,
+    URL_SCHEME_PERMISSION_CARD: URL_SCHEME_PERMISSION_CARD,
+    HEALTH_CODE_NAME: HEALTH_CODE_NAME,
+    PERMISSIONG_CARD_NAME: PERMISSIONG_CARD_NAME,
+}

@@ -18,16 +18,28 @@ function requestPermissions() {
     }
 }
 
+function killAlipay() {
+    shell('am start -p com.eg.android.AlipayGphone')
+}
+
 function perpareCacheDir() {
     files.createWithDirs(contants.SCREEN_SHOT_PATH)
 }
 
 function screenShot(name) {
     captureScreen(contants.SCREEN_SHOT_PATH + name + contants.SCREEN_SHOT_SUBFIX)
+    // 直接存储为png媒体系统扫描不出来，需手动更名为.jpg
+    files.rename(contants.SCREEN_SHOT_PATH + name + contants.SCREEN_SHOT_SUBFIX, name + contants.SCREEN_SHOT_TARGET_FORMAT_SUBFIX)
 }
 
-function startApp(urlScheme) {
-    var result = shell('am start -a android.intent.action.VIEW -d "' + urlScheme + '"', true)
+function startApp(target, isIntent) {
+    var param = ''
+    if (!isIntent) {
+        param = '-a android.intent.action.VIEW -d '
+    }
+    console.log('am start ' + param + '"' + target + '"')
+
+    var result = shell('am start ' + param + '"' + target + '"', true)
     
     return result.code
 }
@@ -51,4 +63,5 @@ module.exports = {
     startApp: startApp,
     clearSavedPictures: clearSavedPictures,
     parseCurrentDate: parseCurrentDate,
+    killAlipay: killAlipay,
 }
